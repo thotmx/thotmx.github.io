@@ -12,19 +12,19 @@ Sometimes when I start a small fix, I think that is not necessary to put it on a
 
 Create a new branch on your working directory:
 
-  ```
-  git branch not-so-simple-feature
-  ```
+```
+git branch not-so-simple-feature
+```
 
 Move the master pointer two, three or n commits back (two on this example):
 
-  ```
-  git reset --hard HEAD~2
-  ```
+```
+git reset --hard HEAD~2
+```
 
 Now you can move to the new branch and continue working.
 
-  ```
-  git checkout not-so-simple-feature
-  ```
+```
+git checkout not-so-simple-feature
+```
 
