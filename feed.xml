@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Blog Name</title>
+  <subtitle>Blog subtitle</subtitle>
+  <id>http://blog.url.com/</id>
+  <link href="http://blog.url.com/"/>
+  <link href="http://blog.url.com/feed.xml" rel="self"/>
+  <updated>2015-07-15T19:00:00-05:00</updated>
+  <author>
+    <name>Blog Author</name>
+  </author>
+  <entry>
+    <title>Moving commits from master to a branch</title>
+    <link rel="alternate" href="http://blog.url.com/2015/07/16/moving-commits-from-master-to-a-branch.html"/>
+    <id>http://blog.url.com/2015/07/16/moving-commits-from-master-to-a-branch.html</id>
+    <published>2015-07-15T19:00:00-05:00</published>
+    <updated>2015-10-11T22:38:08-05:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;h3&gt;Problem&lt;/h3&gt;
+
+&lt;p&gt;Sometimes when I start a small fix, I think that is not necessary to put it on a new branch maybe with one commit should be enough. But then I realize that should be necessary a bigger effort to fix it completely. So, I&amp;rsquo;ll need a new branch. But I&amp;rsquo;ve already committed one o two. What can I do?&lt;/p&gt;
+
+&lt;h3&gt;Solution&lt;/h3&gt;
+
+&lt;p&gt;Create a new branch on your working directory:&lt;/p&gt;
+&lt;pre class="highlight plaintext"&gt;&lt;code&gt;git branch not-so-simple-feature
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Move the master pointer two, three or n commits back (two on this example):&lt;/p&gt;
+&lt;pre class="highlight plaintext"&gt;&lt;code&gt;git reset --hard HEAD~2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now you can move to the new branch and continue working.&lt;/p&gt;
+&lt;pre class="highlight plaintext"&gt;&lt;code&gt;git checkout not-so-simple-feature
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+  </entry>
+</feed>

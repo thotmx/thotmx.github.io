@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge;chrome=1' />
+    <title>Not so hermetic - Moving commits from master to a branch</title>
+    <link href='http://fonts.googleapis.com/css?family=Oxygen:400,300,700'
+      rel='stylesheet' type='text/css'>
+    <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed.xml" />
+    <link href="/stylesheets/all.css" rel="stylesheet" type="text/css" />
+    <link href="/stylesheets/syntax.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div id="main" role="main">
+      <nav>
+<ul>
+  <li>
+    <a class="blog-title" href="/">Not so hermetic</a>
+  </li>
+</ul>
+</nav>
+
+      <h3>Problem</h3>
+
+<p>Sometimes when I start a small fix, I think that is not necessary to put it on a new branch maybe with one commit should be enough. But then I realize that should be necessary a bigger effort to fix it completely. So, I&rsquo;ll need a new branch. But I&rsquo;ve already committed one o two. What can I do?</p>
+
+<h3>Solution</h3>
+
+<p>Create a new branch on your working directory:</p>
+<pre class="highlight plaintext"><code>git branch not-so-simple-feature
+</code></pre>
+
+<p>Move the master pointer two, three or n commits back (two on this example):</p>
+<pre class="highlight plaintext"><code>git reset --hard HEAD~2
+</code></pre>
+
+<p>Now you can move to the new branch and continue working.</p>
+<pre class="highlight plaintext"><code>git checkout not-so-simple-feature
+</code></pre>
+
+      <div id="disqus_thread"></div>
+<script type="text/javascript">
+//<![CDATA[
+                  var disqus_shortname = 'notsohermetic';
+          
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+//]]>
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+      <footer>
+<ul class="large-column">
+  <li><h5 class="heading">Recent Articles</h5></li>
+  <li>
+    <ol>
+        <li>
+          <a href="/2015/07/16/moving-commits-from-master-to-a-branch.html">Moving commits from master to a branch</a>
+          <span>Jul 16</span>
+        </li>
+    </ol>
+  </li>
+</ul>
+
+<ul class="small-column">
+  <li><h5 class="heading">Tags</h5></li>
+  <li>
+    <ol>
+        <li><a href="/tags/git.html">git (1)</a></li>
+    </ol>
+  </li>
+  <ul>
+</footer>
+
+    </div>
+  </body>
+</html>
