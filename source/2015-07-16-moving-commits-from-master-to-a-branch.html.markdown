@@ -6,7 +6,7 @@ tags: git
 
 ###Problem
 
-Sometimes when I start a small fix, I think that is not necessary to put it on a new branch maybe with one commit should be enough. But then I realize that should be necessary a bigger effort to fix it completely. So, I'll need a new branch. But I've already committed one o two. What can I do?
+Sometimes when I start a small fix, I think that is not necessary to put it on a new branch maybe with one commit should be enough. But then, I realize that should be necessary a bigger effort to fix it completely. So, I'd need a new branch. But I've already committed one o two commits. What can I do?
 
 ###Solution
 
