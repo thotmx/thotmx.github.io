@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv='X-UA-Compatible' content='IE=edge;chrome=1' />
-    <title>Not so hermetic - Moving commits from master to a branch</title>
+    <title>Not so hermetic - Create a new Dolphin action in KDE 4</title>
     <link href='http://fonts.googleapis.com/css?family=Oxygen:400,300,700'
       rel='stylesheet' type='text/css'>
     <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed.xml" />
@@ -20,23 +20,39 @@
 </ul>
 </nav>
 
-      <h3>Problem</h3>
+      <h3>Context</h3>
 
-<p>Sometimes when I start a small fix, I think that is not necessary to put it on a new branch maybe with one commit should be enough. But then, I realize that should be necessary a bigger effort to fix it completely. So, I&rsquo;d need a new branch. But I&rsquo;ve already committed one o two commits. What can I do?</p>
+<ul>
+<li>I hate repetitive tasks.</li>
+<li>I have to stamp a some PDF&rsquo;s invoices, in order to fit our local tax office&rsquo;s requirements.</li>
+<li>I need to run a command every month in order to accomplish this task.</li>
+<li>I&rsquo;m a KDE 4 user.</li>
+</ul>
+
+<h3>Problem</h3>
+
+<p>I needed to find a simple solution to make it easier.</p>
 
 <h3>Solution</h3>
 
-<p>Create a new branch on your working directory:</p>
-<pre class="highlight plaintext"><code>git branch not-so-simple-feature
+<p>Create the file <strong>~/.kde4/share/kde4/services/ServiceMenus/.desktop</strong> and add this content: </p>
+<pre class="highlight plaintext"><code>[Desktop Entry]
+Type=Service
+ServiceTypes=KonqPopupMenu/Plugin
+MimeType=application/pdf
+Name=Stamp Digital Ocean Tax ID
+Actions=StampDigitalOceanTaxID;
+X-KDE-StartupNotify=false
+X-KDE-Priority=TopLevel
+
+[Desktop Action StampDigitalOceanTaxID]
+Name=Stamp Digital Ocean Tax ID
+Exec=pdftk %F stamp /data/digital_ocean/tax_id_digital_ocean.pdf output digital_ocean.pdf
 </code></pre>
 
-<p>Move the master pointer two, three or n commits back (two on this example):</p>
-<pre class="highlight plaintext"><code>git reset --hard HEAD~2
-</code></pre>
+<p>This file, add a new action when you press right click over a PDF file. The option will be &ldquo;Stamp Digital Ocean Tax ID&rdquo; and execute the command on the last line.</p>
 
-<p>Now you can move to the new branch and continue working.</p>
-<pre class="highlight plaintext"><code>git checkout not-so-simple-feature
-</code></pre>
+<p>And that&rsquo;s it</p>
 
       <div id="disqus_thread"></div>
 <script type="text/javascript">
