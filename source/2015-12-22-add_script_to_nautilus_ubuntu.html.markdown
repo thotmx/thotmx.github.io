@@ -27,6 +27,8 @@ done
 exit0
 ```
 
+Add execute permission to the file.
+
 Restart nautilus
 
 Done!
