@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv='X-UA-Compatible' content='IE=edge;chrome=1' />
-    <title>Not so hermetic - Create a new Dolphin action in KDE 4</title>
+    <title>Not so hermetic - add_script_to_nautilus_ubuntu</title>
     <link href='http://fonts.googleapis.com/css?family=Oxygen:400,300,700'
       rel='stylesheet' type='text/css'>
     <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed.xml" />
@@ -20,39 +20,32 @@
 </ul>
 </nav>
 
-      <h3>Context</h3>
+      <p>In <a href="2015/11/27/create-a-new-dolphin-action-in-kde-4.html">my previous post</a>, in order to avoid a repetitive task I had to create a new action in Dolphin.</p>
 
-<ul>
-<li>I hate repetitive tasks.</li>
-<li>I have to stamp a some PDF&rsquo;s invoices, in order to fit our local tax office&rsquo;s requirements.</li>
-<li>I need to run a command every month in order to accomplish this task.</li>
-<li>I&rsquo;m a KDE 4 user.</li>
-</ul>
+<p>But now, for jobs reasons, I&rsquo;m an Ubuntu user. So I should replicate the same behavior in Nautilus.</p>
 
-<h3>Problem</h3>
+<p>Create a file with the name of the action on this path <code>~/.local/share/nautilus/scripts</code></p>
 
-<p>I needed to find a simple solution to make it easier.</p>
+<p>Paste this script</p>
+<pre class="highlight plaintext"><code>#!/bin/bash
 
-<h3>Solution</h3>
+for line in $NAUTILUS_SCRIPT_SELECTED_FILE_PATHS; do
+  if [[ "$line" = "" || "$line" = " " ]]; then
+    exit
+  else
+    filename = $(basename $line)
+    pdftk $line stamp /data/digital_ocean/tax_id_digital_ocean.pdf output digital_ocean.pdf
+  fi
+done
 
-<p>Create the file <strong>~/.kde4/share/kde4/services/ServiceMenus/.desktop</strong> and add this content: </p>
-<pre class="highlight plaintext"><code>[Desktop Entry]
-Type=Service
-ServiceTypes=KonqPopupMenu/Plugin
-MimeType=application/pdf
-Name=Stamp Digital Ocean Tax ID
-Actions=StampDigitalOceanTaxID;
-X-KDE-StartupNotify=false
-X-KDE-Priority=TopLevel
-
-[Desktop Action StampDigitalOceanTaxID]
-Name=Stamp Digital Ocean Tax ID
-Exec=pdftk %F stamp /data/digital_ocean/tax_id_digital_ocean.pdf output digital_ocean.pdf
+exit0
 </code></pre>
 
-<p>This file, add a new action when you press right click over a PDF file. The option will be &ldquo;Stamp Digital Ocean Tax ID&rdquo; and execute the command on the last line.</p>
+<p>Restart nautilus</p>
 
-<p>And that&rsquo;s it</p>
+<p>Done!</p>
+
+<p>Now, you are going to have an Script submenu with the new action on your right click menu. </p>
 
       <div id="disqus_thread"></div>
 <script type="text/javascript">

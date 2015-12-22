@@ -23,6 +23,39 @@
       
 <ul>
   <li>
+    <h1><a href="/2015/12/22/add_script_to_nautilus_ubuntu.html">add_script_to_nautilus_ubuntu</a></h1>
+    <h5>Dec 22</h5>
+  <!-- use article.summary(250) if you have Nokogiri available to show just
+       the first 250 characters -->
+       <p><p>In <a href="2015/11/27/create-a-new-dolphin-action-in-kde-4.html">my previous post</a>, in order to avoid a repetitive task I had to create a new action in Dolphin.</p>
+
+<p>But now, for jobs reasons, I&rsquo;m an Ubuntu user. So I should replicate the same behavior in Nautilus.</p>
+
+<p>Create a file with the name of the action on this path <code>~/.local/share/nautilus/scripts</code></p>
+
+<p>Paste this script</p>
+<pre class="highlight plaintext"><code>#!/bin/bash
+
+for line in $NAUTILUS_SCRIPT_SELECTED_FILE_PATHS; do
+  if [[ "$line" = "" || "$line" = " " ]]; then
+    exit
+  else
+    filename = $(basename $line)
+    pdftk $line stamp /data/digital_ocean/tax_id_digital_ocean.pdf output digital_ocean.pdf
+  fi
+done
+
+exit0
+</code></pre>
+
+<p>Restart nautilus</p>
+
+<p>Done!</p>
+
+<p>Now, you are going to have an Script submenu with the new action on your right click menu. </p>
+</p>
+  </li>
+  <li>
     <h1><a href="/2015/11/27/create-a-new-dolphin-action-in-kde-4.html">Create a new Dolphin action in KDE 4</a></h1>
     <h5>Nov 27</h5>
   <!-- use article.summary(250) if you have Nokogiri available to show just
@@ -95,6 +128,10 @@ Exec=pdftk %F stamp /data/digital_ocean/tax_id_digital_ocean.pdf output digital_
   <li>
     <ol>
         <li>
+          <a href="/2015/12/22/add_script_to_nautilus_ubuntu.html">add_script_to_nautilus_ubuntu</a>
+          <span>Dec 22</span>
+        </li>
+        <li>
           <a href="/2015/11/27/create-a-new-dolphin-action-in-kde-4.html">Create a new Dolphin action in KDE 4</a>
           <span>Nov 27</span>
         </li>
@@ -111,6 +148,8 @@ Exec=pdftk %F stamp /data/digital_ocean/tax_id_digital_ocean.pdf output digital_
   <li>
     <ol>
         <li><a href="/tags/kde.html">kde (1)</a></li>
+        <li><a href="/tags/ubuntu.html">ubuntu (1)</a></li>
+        <li><a href="/tags/nautilus.html">nautilus (1)</a></li>
         <li><a href="/tags/git.html">git (1)</a></li>
     </ol>
   </li>
