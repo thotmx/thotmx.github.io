@@ -1,5 +1,5 @@
 ---
-title: add_script_to_nautilus_ubuntu
+title: Add script to Nautilus in Ubuntu 
 date: 2015-12-22 05:33 UTC
 tags: ubuntu, nautilus
 ---
