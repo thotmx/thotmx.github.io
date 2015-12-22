@@ -14,7 +14,7 @@
     <link rel="alternate" href="http://blog.url.com/2015/12/22/add_script_to_nautilus_ubuntu.html"/>
     <id>http://blog.url.com/2015/12/22/add_script_to_nautilus_ubuntu.html</id>
     <published>2015-12-21T23:33:00-06:00</published>
-    <updated>2015-12-21T23:57:58-06:00</updated>
+    <updated>2015-12-22T00:04:48-06:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -38,6 +38,8 @@ done
 
 exit0
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Add execute permission to the file.&lt;/p&gt;
 
 &lt;p&gt;Restart nautilus&lt;/p&gt;
 
